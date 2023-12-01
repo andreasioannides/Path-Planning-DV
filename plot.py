@@ -25,15 +25,17 @@ def DrawSample(obstacleList, nodes, delaunayEdges, rnd):
 
     axes = plt.gca()
     
-    # for obs in obstacleList:
-        # circle = plt.Circle((obs[0],obs[1]), radius=paramsRRT["cone_inner_size"], fill=False, edgecolor='blue')
-        # maxCircle = plt.Circle((obs[0],obs[1]), radius=paramsRRT["cone_outer_size"], fill=False, edgecolor='blue')
-    # innerCarCircle = plt.Circle((nodes[0][0],nodes[0][1]), radius=paramsPP["targetConesShortDist"], fill=False, edgecolor='green')
-    # outerCarCircle = plt.Circle((nodes[0][0],nodes[0][1]), radius=paramsPP["targetConesBigDist"], fill=False, edgecolor='green')
-        # axes.add_patch(circle)
-        # axes.add_patch(maxCircle)
-    # axes.add_patch(innerCarCircle)
-    # axes.add_patch(outerCarCircle)
+    for obs in obstacleList:
+        circle = plt.Circle((obs[0],obs[1]), radius=paramsRRT["cone_inner_size"], fill=False, edgecolor='blue')
+        maxCircle = plt.Circle((obs[0],obs[1]), radius=paramsRRT["cone_outer_size"], fill=False, edgecolor='blue')
+
+    innerCarCircle = plt.Circle((nodes[0][0],nodes[0][1]), radius=paramsPP["targetConesShortDist"], fill=False, edgecolor='green')
+    outerCarCircle = plt.Circle((nodes[0][0],nodes[0][1]), radius=paramsPP["targetConesBigDist"], fill=False, edgecolor='green')
+
+    axes.add_patch(circle)
+    axes.add_patch(maxCircle)
+    axes.add_patch(innerCarCircle)
+    axes.add_patch(outerCarCircle)
 
     plt.plot(nodes[0][0], nodes[0][1], "xr")
 
@@ -47,15 +49,17 @@ def DrawGraph(obstacleList, nodeList, delaunayEdges, bestLeaf, bestBranch, midpo
     plt.scatter(bestLeaf[0], bestLeaf[1], color='red', marker='o')
     plt.scatter(midpoints[:,0], midpoints[:,1], color="red", marker="o")
 
-    # for obs in obstacleList:
-        # circle = plt.Circle((obs[0],obs[1]), radius=paramsRRT["cone_inner_size"], fill=False, edgecolor='blue')
-        # maxCircle = plt.Circle((obs[0],obs[1]), radius=paramsRRT["cone_outer_size"], fill=False, edgecolor='blue')
-    # innerCarCircle = plt.Circle((nodeList[0][0],nodeList[0][1]), radius=paramsPP["targetConesShortDist"], fill=False, edgecolor='green')
-    # outerCarCircle = plt.Circle((nodeList[0][0],nodeList[0][1]), radius=paramsPP["targetConesBigDist"], fill=False, edgecolor='green')
-        # ax.add_patch(circle)
-        # ax.add_patch(maxCircle)
-    # ax.add_patch(innerCarCircle)
-    # ax.add_patch(outerCarCircle)
+    for obs in obstacleList:
+        circle = plt.Circle((obs[0],obs[1]), radius=paramsRRT["cone_inner_size"], fill=False, edgecolor='blue')
+        maxCircle = plt.Circle((obs[0],obs[1]), radius=paramsRRT["cone_outer_size"], fill=False, edgecolor='blue')
+
+    innerCarCircle = plt.Circle((nodeList[0][0],nodeList[0][1]), radius=paramsPP["targetConesShortDist"], fill=False, edgecolor='green')
+    outerCarCircle = plt.Circle((nodeList[0][0],nodeList[0][1]), radius=paramsPP["targetConesBigDist"], fill=False, edgecolor='green')
+
+    ax.add_patch(circle)
+    ax.add_patch(maxCircle)
+    ax.add_patch(innerCarCircle)
+    ax.add_patch(outerCarCircle)
     
     for node in nodeList:
         parent = np.array(node[2:])
@@ -76,13 +80,13 @@ def DrawGraph(obstacleList, nodeList, delaunayEdges, bestLeaf, bestBranch, midpo
     plt.show()
 
 def main():
-    obstacleList = np.loadtxt("/home/andreas/Documents/PromRacing/Path_planning_code/src_cpp_v2/RRT/plotTxt/obstacleList.txt")
-    nodeList = np.loadtxt("/home/andreas/Documents/PromRacing/Path_planning_code/src_cpp_v2/RRT/plotTxt/nodeList.txt")
-    rndList = np.loadtxt("/home/andreas/Documents/PromRacing/Path_planning_code/src_cpp_v2/RRT/plotTxt/rndList.txt")
-    bestLeaf = np.loadtxt("/home/andreas/Documents/PromRacing/Path_planning_code/src_cpp_v2/RRT/plotTxt/bestLeaf.txt")
-    delaunayEdges = np.loadtxt("/home/andreas/Documents/PromRacing/Path_planning_code/src_cpp_v2/RRT/plotTxt/delaunayEdges.txt")
-    bestBranch = np.loadtxt("/home/andreas/Documents/PromRacing/Path_planning_code/src_cpp_v2/RRT/plotTxt/bestBranch.txt")
-    midpoints = np.loadtxt("/home/andreas/Documents/PromRacing/Path_planning_code/src_cpp_v2/RRT/plotTxt/midpoints.txt")
+    obstacleList = np.loadtxt("RRT/plotTxt/obstacleList.txt")
+    nodeList = np.loadtxt("RRT/plotTxt/nodeList.txt")
+    rndList = np.loadtxt("RRT/plotTxt/rndList.txt")
+    bestLeaf = np.loadtxt("RRT/plotTxt/bestLeaf.txt")
+    delaunayEdges = np.loadtxt("RRT/plotTxt/delaunayEdges.txt")
+    bestBranch = np.loadtxt("RRT/plotTxt/bestBranch.txt")
+    midpoints = np.loadtxt("RRT/plotTxt/midpoints.txt")
 
     nodes = np.array([nodeList[0]])
 
