@@ -1,0 +1,6 @@
+{
+    "backConesDist" : 0.5,
+    "maxEdgeLenght" : 8.0,
+    "targetConesShortDist" : 7.0,
+    "targetConesBigDist" : 12.0
+}

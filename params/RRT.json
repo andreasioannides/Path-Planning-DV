@@ -1,0 +1,9 @@
+{
+    "planDist" : 12.0,
+    "expandDist" : 1.0,
+    "turnAngle" : 20.0,
+    "iters" : 50,
+    "cone_inner_size" : 1.0,
+    "cone_outer_size" : 3.0,
+    "leaf_min_cost" : 10
+}
