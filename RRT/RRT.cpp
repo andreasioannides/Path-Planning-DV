@@ -8,7 +8,7 @@
 #include <cmath>
 
 using json = nlohmann::json;
-std::ifstream jsonRRT("/home/andreas/Documents/PromRacing/Path_planning_code/src_cpp_v2/params/RRT.json");
+std::ifstream jsonRRT("params/RRT.json");
 json paramsRRT = json::parse(jsonRRT);
 
 RRT::RRT ( Node *start,  std::vector<Point> local_map, std::vector<Point> rrtTargets ) : 
@@ -191,7 +191,7 @@ std::vector<Node*> RRT::findLeafNodes ()
 }
 
 std::vector<Node*> RRT::createRRT () {
-    std::ifstream jsonPlanner("/home/andreas/Documents/PromRacing/Path_planning_code/src_cpp_v2/params/PathPlanner.json");
+    std::ifstream jsonPlanner("params/PathPlanner.json");
     json paramsPlanner = json::parse(jsonPlanner);
     double targetConesShortDist = paramsPlanner["targetConesShortDist"].get<double>();
     jsonPlanner.close();

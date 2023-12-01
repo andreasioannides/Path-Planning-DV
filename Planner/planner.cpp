@@ -17,7 +17,7 @@ typedef Delaunay_t::Finite_faces_iterator Finite_faces_iterator;
 typedef Delaunay_t::Point delaunayPoint;
 
 using json = nlohmann::json;
-std::ifstream jsonPlanner("/home/andreas/Documents/PromRacing/Path_planning_code/src_cpp_v2/params/PathPlanner.json");
+std::ifstream jsonPlanner("params/PathPlanner.json");
 json paramsPlanner = json::parse(jsonPlanner);
 
 PathPlanner::PathPlanner ( Node *start, std::vector<Point> local_map) :          
@@ -261,12 +261,12 @@ std::vector<Point*> PathPlanner::Planning ()
     
     //////  The rest code is only for plotting purposes  ///////
 
-    std::string path1 = "/home/andreas/Documents/PromRacing/Path_planning_code/src_cpp_v2/RRT/plotTxt/bestLeaf.txt";
+    std::string path1 = "RRT/plotTxt/bestLeaf.txt";
     std::ofstream outputFile1(path1);
     outputFile1 << best_leaf->x << " " << best_leaf->y << "\n";
     outputFile1.close();
 
-    std::string path2 = "/home/andreas/Documents/PromRacing/Path_planning_code/src_cpp_v2/RRT/plotTxt/nodeList.txt";
+    std::string path2 = "RRT/plotTxt/nodeList.txt";
     std::ofstream outputFile11(path2);
 
     for (auto p : rrt.nodeList) {
@@ -279,11 +279,11 @@ std::vector<Point*> PathPlanner::Planning ()
     outputFile11.close();
 
     // Random points List -> txt file
-    std::string path3 = "/home/andreas/Documents/PromRacing/Path_planning_code/src_cpp_v2/RRT/plotTxt/rndList.txt";
+    std::string path3 = "RRT/plotTxt/rndList.txt";
     save_as_txt(rrt.rndList, path3);
 
     // Delaunay edges List -> txt file
-    std::string path4 = "/home/andreas/Documents/PromRacing/Path_planning_code/src_cpp_v2/RRT/plotTxt/delaunayEdges.txt";
+    std::string path4 = "RRT/plotTxt/delaunayEdges.txt";
     std::ofstream outputFile4(path4);
 
     for (Edge& edge : delaunayEdges) {
@@ -294,7 +294,7 @@ std::vector<Point*> PathPlanner::Planning ()
     outputFile4.close();
 
     // Best branch edges List -> txt file
-    std::string path5 = "/home/andreas/Documents/PromRacing/Path_planning_code/src_cpp_v2/RRT/plotTxt/bestBranch.txt";
+    std::string path5 = "RRT/plotTxt/bestBranch.txt";
     std::ofstream outputFile5(path5);
 
     for (Edge& edge : best_branch) {
@@ -305,7 +305,7 @@ std::vector<Point*> PathPlanner::Planning ()
     outputFile5.close();
 
     // Midpoints List -> txt file
-    std::string path6 = "/home/andreas/Documents/PromRacing/Path_planning_code/src_cpp_v2/RRT/plotTxt/midpoints.txt";
+    std::string path6 = "RRT/plotTxt/midpoints.txt";
     std::ofstream outputFile6(path6);
 
     for (Point*& mid : midpoints) {
